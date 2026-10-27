@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Alae, with all my love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300;1,9..144,500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#14223f;
+  --deep:#0c1630;
+  --rose:#f0a9bd;
+  --gold:#f4cd7a;
+  --ivory:#f8f1e7;
+  --muted:#b9c0d4;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--deep);color:var(--ivory);
+  font-family:"Jost",system-ui,sans-serif;font-weight:300;line-height:1.7;
+  background-image:radial-gradient(ellipse at 50% -10%,#24376470,transparent 60%);
+}
+section{padding:clamp(3.5rem,10vw,7rem) 1.5rem;max-width:44rem;margin:0 auto;text-align:center}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative}
+.ar{font-family:"Fraunces",serif;font-size:1.6rem;color:var(--gold);margin:0 0 1rem;letter-spacing:.05em}
+h1{
+  font-family:"Fraunces",serif;font-weight:300;font-style:italic;
+  font-size:clamp(5rem,26vw,13rem);line-height:.95;margin:0;color:var(--rose);
+  letter-spacing:-.02em;
+}
+.hero>*{animation:rise 1.8s ease-out 3.6s both}
+.intro{position:fixed;inset:0;z-index:50;background:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;animation:lift 1s ease-in 3.2s forwards;cursor:pointer}
+.intro svg{width:7rem;height:7rem;fill:none;stroke:var(--gold);stroke-width:.5}
+.intro path{stroke-dasharray:140;stroke-dashoffset:140;animation:draw 2.2s ease-out forwards,fillin 1s ease 2s forwards}
+.intro p{font-family:"Fraunces",serif;font-style:italic;font-size:2rem;color:var(--rose);margin:0;opacity:0;animation:fadein 1.2s ease 1.4s forwards}
+.intro.skip{display:none}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillin{to{fill:#f4cd7a33}}
+@keyframes fadein{to{opacity:1}}
+@keyframes lift{to{opacity:0;visibility:hidden;transform:translateY(-3rem)}}
+.sub{font-size:clamp(1.1rem,3.5vw,1.45rem);margin:1.5rem 0 0;color:var(--ivory);max-width:28rem}
+.hint{position:absolute;bottom:2rem;color:var(--muted);font-size:.95rem}
+h2{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.8rem,6vw,2.6rem);margin:0 0 .6rem;color:var(--gold)}
+.lead{color:var(--muted);margin:0 0 2.5rem}
+.stars{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(min-width:34rem){.stars{grid-template-columns:repeat(3,1fr)}}
+.star{
+  appearance:none;border:1px solid #f4cd7a55;background:var(--night);color:var(--ivory);
+  border-radius:1.2rem;padding:1.4rem 1rem;min-height:11rem;cursor:pointer;font:inherit;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;
+  transition:background .4s,border-color .4s;
+}
+.star svg{width:3.4rem;height:3.4rem;fill:none;stroke:var(--gold);stroke-width:1.5;transition:transform .6s,fill .4s}
+.star .txt{font-family:"Fraunces",serif;font-style:italic;font-size:1.1rem;line-height:1.45;display:none}
+.star .tap{color:var(--muted);font-size:.95rem}
+.star[aria-pressed="true"]{background:#2a2147;border-color:var(--rose)}
+.star[aria-pressed="true"] svg{transform:rotate(45deg);fill:#f0a9bd33;stroke:var(--rose)}
+.star[aria-pressed="true"] .txt{display:block}
+.star[aria-pressed="true"] .tap{display:none}
+.star:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.letter{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(1.15rem,3.6vw,1.4rem);line-height:1.85;text-align:left}
+.letter p{margin:0 0 1.4rem}
+.sign{text-align:right;color:var(--rose);font-style:italic;font-size:1.5rem}
+.heart{
+  font-size:5rem;color:var(--rose);display:inline-block;cursor:pointer;border:0;background:none;
+  animation:beat 1.6s ease-in-out infinite;line-height:1;
+}
+.big{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(2rem,8vw,3.4rem);color:var(--ivory);margin:.5rem 0;min-height:1.3em}
+.btn{
+  appearance:none;border:1px solid var(--gold);background:none;color:var(--gold);
+  padding:.8rem 1.8rem;border-radius:99px;font:inherit;font-size:1.05rem;cursor:pointer;margin-top:1.2rem;
+}
+.btn:hover{background:var(--gold);color:var(--deep)}
+footer{padding:3rem 1.5rem 4rem;text-align:center;color:var(--muted);font-size:.95rem}
+@keyframes rise{from{opacity:0;transform:translateY(1.5rem)}to{opacity:1;transform:none}}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.14)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.intro{display:none}}
+</style>
+</head>
+<body>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <svg viewBox="0 0 24 24"><path pathLength="140" d="M12 1.5l2.6 6.3 6.3-2.6-2.6 6.3 6.3 2.6-6.3 2.6 2.6 6.3-6.3-2.6L12 22.5l-2.6-6.3-6.3 2.6 2.6-6.3L1.5 12l6.3-2.6L5.2 3.2l6.3 2.6z"/></svg>
+  <p>For Alae</p>
+</div>
+
+<section class="hero">
+  <p class="ar" lang="ar" dir="rtl">أحبك</p>
+  <h1>Alae</h1>
+  <p class="sub">I made you a little corner of the internet, just to say how much I love you.</p>
+  <span class="hint">Keep scrolling, my love</span>
+</section>
+
+<section>
+  <h2>Reasons I love you</h2>
+  <p class="lead">Tap each star. There are more reasons than I could ever fit here.</p>
+  <div class="stars" id="stars"></div>
+</section>
+
+<section>
+  <h2>A letter for you</h2>
+  <div class="letter">
+    <p>My love, you are the calm in my busiest days and the laughter in my quietest ones.</p>
+    <p>Every day with you feels like home. You make ordinary moments feel special, and you make me want to be a better man.</p>
+    <p>Thank you for your patience, your kindness, and your beautiful heart. I am so grateful that out of everyone in the world, I get to be yours.</p>
+    <p>Today, tomorrow, and for all the days after, I choose you.</p>
+    <p class="sign">Forever yours</p>
+  </div>
+</section>
+
+<section>
+  <h2>One more thing</h2>
+  <p class="lead">Tap the heart.</p>
+  <button class="heart" id="heart" aria-label="Tap the heart">♥</button>
+  <p class="big" id="big" aria-live="polite"></p>
+  <button class="btn" id="again">Tell me again</button>
+</section>
+
+<footer>Made with all my love, for Alae.</footer>
+
+<script>
+var reasons=[
+  "Your smile fixes any day I’m having.",
+  "You care for everyone around you, always.",
+  "You make our home feel warm.",
+  "Your laugh is my favorite sound.",
+  "You believe in me, even when I doubt myself.",
+  "You are my best friend and my forever."
+];
+var star='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.6 6.3 6.3-2.6-2.6 6.3 6.3 2.6-6.3 2.6 2.6 6.3-6.3-2.6L12 22.5l-2.6-6.3-6.3 2.6 2.6-6.3L1.5 12l6.3-2.6L5.2 3.2l6.3 2.6z"/></svg>';
+var box=document.getElementById("stars");
+reasons.forEach(function(r){
+  var b=document.createElement("button");
+  b.className="star";b.setAttribute("aria-pressed","false");
+  b.innerHTML=star+'<span class="tap">Tap to open</span><span class="txt"></span>';
+  b.querySelector(".txt").textContent=r;
+  b.addEventListener("click",function(){
+    b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")==="true"?"false":"true");
+  });
+  box.appendChild(b);
+});
+var lines=["I love you, Alae.","You are my whole heart.","Thank you for being you.","I love you more every day.","You are my home.","Always and forever, Alae."];
+var i=0,big=document.getElementById("big");
+function say(){big.textContent=lines[i%lines.length];i++}
+document.getElementById("heart").addEventListener("click",say);
+document.getElementById("again").addEventListener("click",say);
+var intro=document.getElementById("intro");
+intro.addEventListener("click",function(){intro.classList.add("skip")});
+setTimeout(function(){intro.classList.add("skip")},4500);
+</script>
+</body>
+</html>
